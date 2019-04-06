@@ -29,20 +29,24 @@ app.use(express.static("public"));
 
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-var db = mongoose.connect(MONGODB_URI);
+var db = require('./models');
 
 //Routes
 
 // Get Route for scraping the website
 app.get("/scrape", function (req, res){
-    axios.get("view-source:https://www.sony.net/SonyInfo/News/Press/").then(function(response){
+    axios.get("https://www.sony.net/SonyInfo/News/Press/").then(function(response){
         var $ = cheerio.load(response.data);
 
         $(".com_newsrelease-link").each(function (i, element){
             //save an empty result object
             var result = {};
             result.title = $(this)
+            .children("a")
+            .text();
+            result.summary = $(this)
             .children("a")
             .text();
             result.link = $(this)
@@ -67,20 +71,21 @@ app.get("/scrape", function (req, res){
 app.get("/scrapes", function(req, res){
     db.Scrape.find({})
     .then(function(dbScrape){
-        res.json(dbScrape)
+        res.json(dbScrape);
     })
+    
     .catch(function(err){
         res.json(err);
     });
 });
 app.get("/scrapes/:id", function(req, res){
-    db.Scrape.findone({_id:req.params.id})
+    db.Scrape.findOne({_id:req.params.id})
     .populate("note")
     .then(function(dbScrape){
         res.json(dbScrape);
     })
     .catch(function(err){
-        res.json(err)
+        res.json(err);
     });
 });
 
