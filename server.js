@@ -30,7 +30,7 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.connect(MONGODB_URI);
+var db = mongoose.connect(MONGODB_URI);
 
 //Routes
 
@@ -74,7 +74,7 @@ app.get("/scrapes", function(req, res){
     });
 });
 app.get("/scrapes/:id", function(req, res){
-    dbScrape.findone({_id:req.params.id})
+    db.Scrape.findone({_id:req.params.id})
     .populate("note")
     .then(function(dbScrape){
         res.json(dbScrape);
