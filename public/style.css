@@ -1,4 +1,5 @@
-body { background-color: cornflowerblue }
+body { background-color:lightgrey;
+ }
 #wrapper {
   width: 960px;
   margin-left: auto;
@@ -33,4 +34,8 @@ h1 {
 }
 h2{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+header{
+  background-color:lightgoldenrodyellow;
 }
