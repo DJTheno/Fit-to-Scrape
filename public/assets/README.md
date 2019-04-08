@@ -5,7 +5,7 @@
 ## Tech Used
 #### Express, Axios, mongoose, and Cherio
 
-### i was able to get the site functioning, if you click on an article you can save a note with a title and a body.  if you click on the not again you note will pop back up in the title and body.
+### i was able to get the site functioning, if you click on an article you can save a note with a title and a body, you have to scroll down to the bottom of the screen to find the text boxes, I'm still trying to fix that part.  if you click on the not again you note will pop back up in the title and body.
 
 # Screen Shots
 ![alt text](photos/Readme10.PNG)
