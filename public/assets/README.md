@@ -5,7 +5,7 @@
 ## Tech Used
 #### Express, Axios, mongoose, and Cherio
 
-### I was able to get the Site mostly functioning, you cannot view and delete your comments but you cannot view your comments or delete them.  I will keep working on it.
+### i was able to get the site functioning, if you click on an article you can save a note with a title and a body.  if you click on the not again you note will pop back up in the title and body.
 
 # Screen Shots
 ![alt text](photos/Readme10.PNG)
