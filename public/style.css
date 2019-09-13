@@ -41,6 +41,7 @@ footer{
   overflow: auto;
   width: 60%;
   height: 700px;
+  font-weight:bold;
 }
 #notes {
   float: right;
@@ -58,4 +59,8 @@ input {
 textarea {
   height: 200px;
   font-size: 18px;
+}
+
+#scrapes{
+  font-weight: bold;
 }
